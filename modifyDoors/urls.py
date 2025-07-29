@@ -18,8 +18,8 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 
-from orders.views import OrdersAPIView, ModifyOrdersAPIView
-from services.views import ServicesAPIView, CharacteristicsAPIView
+from orders.views import OrdersAPIView, ModifyOrdersAPIView, CheckOrderView, GetModifyView
+from services.views import ServicesAPIView, CharacteristicsAPIView, GetServicesAPIView
 
 router = routers.SimpleRouter()
 router.register(r'orders', OrdersAPIView)
@@ -30,6 +30,8 @@ router.register(r'characteristics', CharacteristicsAPIView)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/v1/check-order/', CheckOrderView.as_view(), name='check-order'),
+    path('api/v1/get-modify/', GetModifyView.as_view(), name='get-modify'),
+    path('api/v1/get-services/', GetServicesAPIView.as_view({'get': 'list'}), name='get-services'),
     path('api/v1/', include(router.urls)),
-
 ]

@@ -25,3 +25,5 @@ class ModifyDoors(models.Model):
     site_status = models.CharField(verbose_name="Статус заявки на сайте",
                                    max_length=10, choices=SiteOrderStatus.choices,
                                    default=SiteOrderStatus.CREATE)
+
+
