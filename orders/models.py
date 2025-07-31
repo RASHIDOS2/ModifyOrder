@@ -11,14 +11,14 @@ class SiteOrderStatus(models.TextChoices):
 
 
 class Orders(models.Model):
-    uuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    uuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=True)
     title = models.CharField(max_length=100)
     date = models.DateTimeField(auto_now=False)
     order_name = models.CharField(max_length=100)
 
 
 class ModifyDoors(models.Model):
-    uuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    uuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=True)
     title = models.CharField(max_length=100)
     time_created = models.DateField(auto_now=False)
     order_id = models.ForeignKey(Orders, on_delete=models.CASCADE)
